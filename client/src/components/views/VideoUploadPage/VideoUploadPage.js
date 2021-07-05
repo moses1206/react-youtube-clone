@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import { Typography, Button, Form, message, Input, Icon, Select } from 'antd';
+import { Typography, Button, Form, message, Input, Icon } from 'antd';
 import Dropzone from 'react-dropzone';
 import Axios from 'axios';
 import { useSelector } from 'react-redux';
 
 const { TextArea } = Input;
-const { Option } = Select;
 const { Title } = Typography;
 
 const PrivateOptions = [

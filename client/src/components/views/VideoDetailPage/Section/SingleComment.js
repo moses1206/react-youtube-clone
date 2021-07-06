@@ -15,8 +15,8 @@ function SingleComment(props) {
     setOpenReply(!OpenReply);
   };
 
-  const onHandleChange = (e) => {
-    setCommentValue(e.currentTarget.CommentValue);
+  const onHandleChange = (event) => {
+    setCommentValue(event.currentTarget.value);
   };
 
   const onSubmit = (e) => {
@@ -39,6 +39,7 @@ function SingleComment(props) {
       }
 
       setCommentValue('');
+      setOpenReply(!OpenReply);
     });
   };
 
@@ -61,11 +62,11 @@ function SingleComment(props) {
 
       {OpenReply && (
         <form style={{ display: 'flex' }} onSubmit={onSubmit}>
-          <TextArea
+          <textarea
             style={{ width: '100%', borderRadius: '5px' }}
             onChange={onHandleChange}
             value={CommentValue}
-            placeholder="코멘트를 작성해주세요!!"
+            placeholder="댓글을 작성해주세요!!"
           />
           <br />
           <button style={{ width: '20%', height: '52px' }} onClick={onSubmit}>

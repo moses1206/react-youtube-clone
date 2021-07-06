@@ -50,16 +50,18 @@ function SingleComment(props) {
 
   return (
     <div>
-      <Comment
-        actions={actions}
-        author={props.comment.writer.name}
-        avatar={<Avatar src={props.comment.writer.image} alt="avatar" />}
-        content={props.comment.content}
-      />
+      {props.comment.writer && (
+        <Comment
+          actions={actions}
+          author={props.comment.writer.name}
+          avatar={<Avatar src={props.comment.writer.image} alt="avatar" />}
+          content={props.comment.content}
+        />
+      )}
 
       {OpenReply && (
         <form style={{ display: 'flex' }} onSubmit={onSubmit}>
-          <textarea
+          <TextArea
             style={{ width: '100%', borderRadius: '5px' }}
             onChange={onHandleChange}
             value={CommentValue}

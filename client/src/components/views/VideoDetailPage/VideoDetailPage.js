@@ -4,6 +4,7 @@ import { Row, Col, List, Avatar } from 'antd';
 import SideVideo from './Section/SideVideo';
 import Subscribe from './Section/Subscribe';
 import Comments from './Section/Comments';
+import LikeDislike from './Section/LikeDislike';
 
 function VideoDetailPage(props) {
   const videoId = props.match.params.videoId;
@@ -55,7 +56,12 @@ function VideoDetailPage(props) {
               src={`http://localhost:5000/${VideoDetail.filePath}`}
               controls
             ></video>
-            <List.Item actions={[SubscribeButton]}>
+            <List.Item
+              actions={[
+                <LikeDislike videoId={videoId} video />,
+                SubscribeButton,
+              ]}
+            >
               <List.Item.Meta
                 avatar={
                   <Avatar
